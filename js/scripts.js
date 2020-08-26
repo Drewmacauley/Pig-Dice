@@ -33,24 +33,49 @@ let player2 = new AddPlayer(0, 0, 0);
 $(document).ready(function(){
 
   $("#player1Roll").click(function(){
-    let rollScore = player1.rollDice()
-    $("#player1Dice").text(rollScore);
+    let rollScore1 = player1.rollDice()
+    $("#p1RollMsg").show();
+    $("#player1Dice").text(rollScore1);
+    $("#player1Total").text(player1.turnScore)
+    if(rollScore1 === 1) {
+      $(".player1Buttons").hide();
+      $(".player2Buttons").show();
+      $(".notP1Turn").show();
+      $(".notP2Turn").hide();
+
+    }
   })
 
   $("#player1Hold").click(function(){
-    let totalScore = player1.countTotalScore();
-    $("#player1Total").text(totalScore);
+    let totalScore1 = player1.countTotalScore();
+    $("#player1Total").text(totalScore1);
+    $(".player1Buttons").hide();
+    $(".player2Buttons").show();
+    $(".notP1Turn").show();
+    $(".notP2Turn").hide();
   })
 
 
   $("#player2Roll").click(function(){
-    let rollScore = player2.rollDice()
-    $("#player2Dice").text(rollScore);
+    let rollScore2 = player2.rollDice()
+    $("#p2RollMsg").show();
+    $("#player2Dice").text(rollScore2);
+    $("#player2Total").text(player2.turn);
+    if(rollScore2 === 1) {
+      $(".player2Buttons").hide();
+      $(".player1Buttons").show();
+      $(".notP2Turn").show();
+      $(".notP1Turn").hide();
+    }
   })
-  
+
   $("#player2Hold").click(function(){
-    let totalScore = player2.countTotalScore();
-    $("#player2Total").text(totalScore);
+    let totalScore2 = player2.countTotalScore();
+    $("#player2Total").text(totalScore2);
+    $(".player2Buttons").hide();
+    $(".player1Buttons").show();
+    $(".notP1Turn").hide();
+    $(".notP2Turn").show();
   })
 
 })

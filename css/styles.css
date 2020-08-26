@@ -1,0 +1,19 @@
+.notP1Turn {
+display: none;
+}
+
+.notP2Turn {
+  display: none;
+  }
+
+.player2Buttons {
+  display: none;
+}
+
+.p1RollMsg {
+  display: none;
+}
+
+.p2RollMsg {
+  display: none;
+}
