@@ -17,11 +17,26 @@ AddPlayer.prototype.rollDice = function() {
 
 AddPlayer.prototype.countTotalScore = function () {
   this.totalScore += this.turnScore;
+  this.turnScore = 0;
   if (this.totalScore >= 100) {
     alert("Yay, somebody won");
   }
+  return this.totalScore;
 }
 
 
-let player1 = new AddPlayer();
-let player2 = new AddPlayer();
+let player1 = new AddPlayer(0, 0, 0);
+let player2 = new AddPlayer(0, 0, 0);
+
+
+//User Interface Logic
+$(document).ready(function(){
+  $("#player1Roll").click(function(){
+    let rollScore = player1.rollDice()
+    $("#player1Dice").text(rollScore);
+  })
+  $("#player1Hold").click(function(){
+    let totalScore = player1.countTotalScore();
+    $("#player1Total").text(totalScore);
+  })
+})
