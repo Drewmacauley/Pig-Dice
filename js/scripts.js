@@ -6,9 +6,22 @@ function AddPlayer (rollScore, turnScore, totalScore) {
 }
 
 AddPlayer.prototype.rollDice = function() {
-  let rollValue = Math.floor(Math.random()* 6) + 1;
-  alert(rollValue);
+  let rollScore = Math.floor(Math.random()* 6) + 1;
+  if (rollScore === 1) {
+    this.turnScore = 0; 
+  } else {
+    this.turnScore += rollScore;
+  }
+  return rollScore;
 }
+
+AddPlayer.prototype.countTotalScore = function () {
+  this.totalScore += this.turnScore;
+  if (this.totalScore >= 100) {
+    alert("Yay, somebody won");
+  }
+}
+
 
 let player1 = new AddPlayer();
 let player2 = new AddPlayer();
