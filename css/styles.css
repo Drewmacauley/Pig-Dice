@@ -17,3 +17,7 @@ display: none;
 .p2RollMsg {
   display: none;
 }
+
+.jumbotron {
+  text-align: center;
+}
