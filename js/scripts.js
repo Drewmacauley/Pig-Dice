@@ -31,12 +31,26 @@ let player2 = new AddPlayer(0, 0, 0);
 
 //User Interface Logic
 $(document).ready(function(){
+
   $("#player1Roll").click(function(){
     let rollScore = player1.rollDice()
     $("#player1Dice").text(rollScore);
   })
+
   $("#player1Hold").click(function(){
     let totalScore = player1.countTotalScore();
     $("#player1Total").text(totalScore);
   })
+
+
+  $("#player2Roll").click(function(){
+    let rollScore = player2.rollDice()
+    $("#player2Dice").text(rollScore);
+  })
+  
+  $("#player2Hold").click(function(){
+    let totalScore = player2.countTotalScore();
+    $("#player2Total").text(totalScore);
+  })
+
 })
